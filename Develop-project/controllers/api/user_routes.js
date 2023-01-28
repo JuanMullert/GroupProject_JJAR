@@ -2,6 +2,8 @@
 const router = require('express').Router();
 const { User } = require('../../Models');
 
+//  TODO Add bcrypt on this module
+//  TODO signup page should look similiar to THIS login page
 router.post('/login', async (req, res) => {
   try {
     const userData = await User.findOne({ where: { email: req.body.email } });
