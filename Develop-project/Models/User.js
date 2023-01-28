@@ -8,7 +8,6 @@ class User extends Model {
   }
 }
 
-// Question of the day: Can we use this model to create a db.json storage for users and passwords
 User.init(
   {
     id: {
