@@ -16,8 +16,10 @@ const loginFormHandler = async (event) => {
     } else {
       // TODO make a route instead of provide a failed log
       // TODO make a sign up page
-      alert('Failed to log in');
-    }
+       // alert('Failed to log in');
+      return 
+      
+        }
   }
 };
 
