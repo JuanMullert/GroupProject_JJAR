@@ -1,8 +1,8 @@
 // login refers to this for a verification
 const router = require('express').Router();
-const { User } = require('../../Models');
+const { User } = require('../../Models/user');
 
-//  TODO Add bcrypt on this module
+//  TODO Add bcrypt on this module (finished)
 //  TODO signup page should look similiar to THIS login page
 router.post('/login', async (req, res) => {
   try {
