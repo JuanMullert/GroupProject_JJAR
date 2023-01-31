@@ -5,12 +5,13 @@ const loginFormHandler = async (event) => {
   const password = document.querySelector('#password-login').value.trim();
 
   if (email && password) {
+    // route to the api in use for front end
     const response = await fetch('/api/user_routes/login', {
       method: 'POST',
       body: JSON.stringify({ email, password }),
       headers: { 'Content-Type': 'application/json' },
     });
-    // this is what happens when we log in
+    // direction after login
     if (response.ok) {
       document.location.replace('/');
     } else {
