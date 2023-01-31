@@ -6,7 +6,7 @@ const loginFormHandler = async (event) => {
 
   if (email && password) {
     // route to the api in use for front end
-    const response = await fetch('/api/user_routes/login', {
+    const response = await fetch('./api/user_routes/login', {
       method: 'POST',
       body: JSON.stringify({ email, password }),
       headers: { 'Content-Type': 'application/json' },
