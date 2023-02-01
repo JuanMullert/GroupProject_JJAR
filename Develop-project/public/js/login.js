@@ -1,9 +1,15 @@
 const loginFormHandler = async (event) => {
   event.preventDefault();
 
-  const email = document.querySelector("#email-login").value.trim();
-  const password = document.querySelector("#password-login").value.trim();
+  // let button = document.querySelector("#clicklogin");
+  const form = document.getElementById("form");
 
+  const data = { email: email, password: password};
+  
+
+  const email = document.getElementById("#email-login").value.trim();
+  const password = document.getElementById("#password-login").value.trim();
+console.log(email, password);
   if (email && password) {
 
     // route to the api in use for front end--Juan
@@ -14,6 +20,7 @@ const loginFormHandler = async (event) => {
       headers: { "Content-Type": "application/json" },
     });
     // direction after login
+    console.log(email, password);
     if (response.ok) {
       document.location.replace("/");
       // TODO make a route instead of provide a failed log
@@ -24,9 +31,8 @@ const loginFormHandler = async (event) => {
       document.location.replace("../controllers/api/signup_routes");
     }
   }
+  form.addEventListener("submit", loginFormHandler)
 };
 
-document
-  .querySelector(".login-form")
-  // when user clicks submit, run loginFormHandler
-  .addEventListener("submit", loginFormHandler);
+
+  // clicklogin.querySelector("#clicklogin").addEventListener("submit", loginFormHandler);
