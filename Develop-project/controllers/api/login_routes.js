@@ -6,8 +6,11 @@ const User = require('../../Models/User');
 //  TODO signup page should look similiar to THIS login page
 router.post('/', async (req, res) => {
   try {
+    console.log(req.body)
     const userData = await User.findOne({ where: { email: req.body.email } });
-
+    console.log(`are we working?`)
+    
+    
     if (!userData) {
       res
         .status(400)
@@ -31,10 +34,10 @@ router.post('/', async (req, res) => {
       res.json({ user: userData, message: 'You are now logged in!' });
     });
 
-  } catch (err) {
-    return res
-        .status(400)
-        .json({ message: err });
+  } 
+  catch (err) {
+    console.log(`the error is working!` + err)
+    res.status(400).json(err);
   }
 });
 
