@@ -1,5 +1,6 @@
 // login refers to this for a verification
 const router = require('express').Router();
+
 const User = require('../../Models/User');
 
 //  TODO Add bcrypt on this module (finished)
@@ -11,6 +12,7 @@ router.post('/', async (req, res) => {
     console.log(`are we working?`)
     
     
+
     if (!userData) {
       res
         .status(400)
@@ -34,9 +36,11 @@ router.post('/', async (req, res) => {
       res.json({ user: userData, message: 'You are now logged in!' });
     });
 
+
   } 
   catch (err) {
     console.log(`the error is working!` + err)
+
     res.status(400).json(err);
   }
 });
