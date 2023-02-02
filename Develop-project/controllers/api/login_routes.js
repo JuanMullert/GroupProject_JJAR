@@ -1,10 +1,10 @@
 // login refers to this for a verification
 const router = require('express').Router();
-const { User } = require('../../Models/user');
+const User = require('../../Models/User');
 
 //  TODO Add bcrypt on this module (finished)
 //  TODO signup page should look similiar to THIS login page
-router.post('/login', async (req, res) => {
+router.post('/', async (req, res) => {
   try {
     const userData = await User.findOne({ where: { email: req.body.email } });
 
@@ -32,7 +32,9 @@ router.post('/login', async (req, res) => {
     });
 
   } catch (err) {
-    res.status(400).json(err);
+    return res
+        .status(400)
+        .json({ message: err });
   }
 });
 
