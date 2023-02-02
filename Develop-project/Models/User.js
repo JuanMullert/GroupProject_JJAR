@@ -35,11 +35,26 @@ User.init(
         len: [8],
       },
     },
+    team_id: {
+      type: DataTypes.INTEGER,
+      allowNull: true,
+      references: {
+        model: 'Team',
+        key: 'id',
+      },
+    },
+    team_owner: {
+      type: DataTypes.BOOLEAN,
+      allowNull: true,
+      // TODO make a function that will allow "a team_owner picked day" to "render" to "everyone with the same team_id"
+    }
   },
   {
     hooks: {
       beforeCreate: async (newUserData) => {
         newUserData.password = await bcrypt.hash(newUserData.password, 10);
+        // TODO create a button that turns this true and creates a team object.
+        newUserData.team_owner = false;
         return newUserData;
       },
     },
