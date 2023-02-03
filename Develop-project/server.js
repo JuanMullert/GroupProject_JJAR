@@ -31,12 +31,16 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
   
 
-  app.get('/', (req, res) => {
-    res.render('login');
-  });
+  // app.get('/', (req, res) => {
+  //   res.render('login');
+  // });
+
+  // app.get('/', (req, res) => {
+  //   res.render('signup');
+  // });
 
   app.get('/', (req, res) => {
-    res.render('signup');
+    res.render('homepage');
   });
 
   app.use(routes)
