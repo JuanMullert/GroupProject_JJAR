@@ -3,8 +3,6 @@ const loginFormHandler = async (event) => {
 
   // let button = document.querySelector("#clicklogin");
   const form = document.getElementById("form");
-
-  const data = { email: email, password: password};
   
 
   const email = document.getElementById("#email-login").value.trim();
