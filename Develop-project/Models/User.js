@@ -39,7 +39,7 @@ User.init(
       type: DataTypes.INTEGER,
       allowNull: true,
       references: {
-        model: 'Team',
+        model: 'team',
         key: 'id',
       },
     },
