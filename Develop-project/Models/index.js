@@ -12,4 +12,4 @@ User.hasOne(Team,{
 });
 Team.hasMany(User, {
     
-})
+});
