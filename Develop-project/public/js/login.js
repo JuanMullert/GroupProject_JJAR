@@ -11,7 +11,7 @@ console.log(email, password);
   if (email && password) {
 
     // route to the api in use for front end--Juan
-    const response = await fetch("../controllers/api/user_routes", {
+    const response = await fetch("../controllers/api/login_routes", {
       method: "POST",
 
       body: JSON.stringify({ email, password }),
