@@ -2,8 +2,7 @@
 const router = require('express').Router();
 const { User,Team }  = require('../../Models');
 
-//  TODO Add bcrypt on this module (finished)
-//  TODO signup page should look similiar to THIS login page
+//  TODO make sure this page returns you to the homepage
 router.post('/', async (req, res) => {
   try {
     console.log(req.body)

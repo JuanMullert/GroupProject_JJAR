@@ -17,7 +17,8 @@ router.get('/', withAuth, async (req, res) => {
       users,
       logged_in: req.session.logged_in,
     });
-  } catch (err) {
+  } 
+  catch (err) {
     res.status(500).json(err);
   }
 });
@@ -31,5 +32,7 @@ router.get('/login', (req, res) => {
 
   res.render('login');
 });
+
+
 
 module.exports = router;
