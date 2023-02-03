@@ -1,7 +1,5 @@
 const { Model, DataTypes } = require('sequelize');
-const bcrypt = require('bcrypt');
 const sequelize = require('../config/connection');
-const User = require('./user');
 const password_generator = require(`./`)
 
 class Team extends Model {
@@ -37,8 +35,15 @@ Team.init(
               Team.generated_password = generate_password()
               return Team;
             },
-        }
+        },
+    
+        sequelize,
+        timestamps: false,
+        freezeTableName: true,
+        underscored: true,
+        modelName: 'team', 
     }
+    
 );
 
 module.exports = Team;
