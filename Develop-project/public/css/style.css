@@ -47,3 +47,23 @@
     .gamebrotitle {
         font-family: Verdana, Geneva, Tahoma, sans-serif;
     }
+
+    .submitbutton {
+        margin-top: 3px;
+        font-size: 18px;
+        border-radius: 2%;
+        width: 34%;
+        height: 45%;
+        color: rgb(255, 255, 255);
+        background-color: rgb(126, 126, 132);
+    
+    
+    }
+
+    .submitbutton:hover {
+        background-color: rgb(47, 48, 48);
+    }
+
+    .btn {
+        width: 70%;
+    }
