@@ -1,4 +1,4 @@
-const User = require('../../Models/user');
+const {User, Team} = require('../../Models');
 
 const router = require('express').Router();
 

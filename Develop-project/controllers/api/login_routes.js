@@ -1,6 +1,6 @@
 // login refers to this for a verification
 const router = require('express').Router();
-const User = require('../../Models/User');
+const { User,Team }  = require('../../Models');
 
 //  TODO Add bcrypt on this module (finished)
 //  TODO signup page should look similiar to THIS login page
