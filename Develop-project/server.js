@@ -43,6 +43,7 @@ app.use(express.static(path.join(__dirname, 'public')));
   //   res.render('homepage');
   // });
 
+
   app.use(routes)
 
   sequelize.sync({ force: false }).then(() => {

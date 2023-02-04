@@ -67,7 +67,7 @@
     .btn {
         width: 30%;
         font-size: 14px;
-        margin-top: 2%;
+        margin-top: 0%;
         padding: 1%;
     }
 
@@ -88,4 +88,9 @@
 
     .chooseanoption {
         color: #ff00b3;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    }
+
+    input {
+        margin-top: 7%;
     }
