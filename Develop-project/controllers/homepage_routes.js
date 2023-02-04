@@ -23,9 +23,10 @@ router.get('/', withAuth, async (req, res) => {
   }
 });
 
+// automatically displays the login route if not "logged_in"
 router.get('/login', (req, res) => {
   if (req.session.logged_in) {
-    // homepage
+    // login
     res.redirect('/');
     return;
   }
@@ -43,6 +44,8 @@ router.get('/signup', (req, res) => {
 
   res.render('login');
 });
+
+
 
 
 module.exports = router;
