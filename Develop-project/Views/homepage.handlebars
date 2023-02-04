@@ -1,11 +1,88 @@
-{{!-- TODO make this homepage into what the logged user needs --}} 
-{{!-- {{!-- {{#each users as |user| }}
-<div class="row align-center mb-5">
-  <div class="col-md-6">
-    <h2>{{{get_emoji}}} {{user.name}}</h2>
+<header>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-white">
+    <div class="container-fluid">
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-mdb-toggle="collapse"
+        data-mdb-target="#navbarExample01"
+        aria-controls="navbarExample01"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <i class="fas fa-bars"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarExample01">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item active">
+            <a class="nav-link" aria-current="page" href="#">Home</a>
+          </li>
+          {{!-- <li class="nav-item">
+            <a class="nav-link" href="#">Features</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Pricing</a>
+          </li> --}}
+          <li class="nav-item">
+            <a class="nav-link" href="#">Log out</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- Navbar -->
+
+  <!-- Background image -->
+  <div class="p-5 text-center bg-image">
+    <div class="mask container">
+      <div class="d-flex justify-content-center align-items-center h-100">
+        <div class="text-white">
+          <h1 class="mb-3">Welcome to GameBRO</h1>
+          <h4 class="mb-3 chooseanoption">Choose an option</h4>
+
+           <form>
+            <div class="teamBox">
+              <input type="text" id="TeamName" placeholder="Type your team name">
+            </div>
+
+            <div class="teamBox">
+          <button id="createTeam" class="btn btn-outline-light btn-lg">Create Team</button>
+           </div>
+           </form>
+          {{!-- <button onclick="printMessage()" class="btn btn-outline-light btn-lg" >Join a Team</button>
+          <button onclick="printMessage()" class="btn btn-outline-light btn-lg" >Schedule a game</button>
+          <button id="clickGamertag" onclick="clickCreateGamertag()" class="btn btn-outline-light btn-lg" >Add a gamertag</button> --}}
+          {{!-- <a class="btn btn-outline-light btn-lg" href="#!" role="button"
+          >Create Team</a> --}}
+          {{!-- <a class="btn btn-outline-light btn-lg" href="#!" role="button"
+          >Join a Team</a>
+          <a class="btn btn-outline-light btn-lg" href="#!" role="button"
+          >Schedule a game</a>
+          <a class="btn btn-outline-light btn-lg" href="#!" role="button"
+          >Add a gamertag</a> --}}
+        </div>
+      </div>
+    </div>
   </div>
-  <div class="col-md-6">
-    <h3><a href="mailto:{{user.email}}">{{user.email}}</a></h3>
-  </div>
+  <!-- Background image -->
+</header>
+
+{{!-- <div class='wrapper'>
+<form id='nameForm'>
+<div class='form-uname'>
+    <label id='nameLable' for='nameField'>Create a username:</label>
+    <input id='nameField' type='text' maxlength='25'></input>
 </div>
-{{/each}} --}}
+<div class='form-sub'>
+    <button id='subButton' type='button'>Print your name!</button>
+</div>
+</form>
+
+<div>
+    <p id='result'></p></div>
+</div> --}}
+
+<script src="/js/homepage.js"></script>
+
+
