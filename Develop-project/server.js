@@ -35,13 +35,13 @@ app.use(express.static(path.join(__dirname, 'public')));
     res.render('login');
   });
 
-  app.get('/', (req, res) => {
-    res.render('signup');
-  });
+  // app.get('/', (req, res) => {
+  //   res.render('signup');
+  // });
 
-  app.get('/', (req, res) => {
-    res.render('homepage');
-  });
+  // app.get('/', (req, res) => {
+  //   res.render('homepage');
+  // });
 
   app.use(routes)
 

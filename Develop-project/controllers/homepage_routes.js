@@ -13,7 +13,7 @@ router.get('/', withAuth, async (req, res) => {
     // map creates a new array called project and then .get that project from the server
     const users = userData.map((project) => project.get({ plain: true }));
 
-    res.render('login', {
+    res.render('homepage', {
       users,
       logged_in: req.session.logged_in,
     });
@@ -30,9 +30,19 @@ router.get('/login', (req, res) => {
     return;
   }
 
-  res.render('homepage');
+  res.render('login');
 });
 
+
+router.get('/signup', (req, res) => {
+  if (req.session.logged_in) {
+    // homepage
+    res.redirect('/signup');
+    return;
+  }
+
+  res.render('login');
+});
 
 
 module.exports = router;
