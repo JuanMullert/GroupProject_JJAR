@@ -23,15 +23,18 @@ router.get('/', withAuth, async (req, res) => {
   }
 });
 
+// automatically displays the login route if not "logged_in"
 router.get('/login', (req, res) => {
   if (req.session.logged_in) {
-    // homepage
+    // login
     res.redirect('/');
     return;
   }
 
   res.render('login');
 });
+
+
 
 
 
