@@ -39,7 +39,7 @@ app.use(express.static(path.join(__dirname, 'public')));
   //   res.render('signup');
   // });
 
-  app.get('/', (req, res) => {
+    app.get('/', (req, res) => {
     res.render('homepage');
   });
 
