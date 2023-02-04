@@ -24,26 +24,20 @@ router.get('/', withAuth, async (req, res) => {
 });
 
 // automatically displays the login route if not "logged_in"
-router.get('/login', (req, res) => {
-  if (req.session.logged_in) {
-    // login
-    res.redirect('/');
-    return;
-  }
-
-  res.render('login');
-});
 
 
-router.get('/signup', (req, res) => {
-  if (req.session.logged_in) {
-    // homepage
-    res.redirect('/signup');
-    return;
-  }
 
-  res.render('login');
-});
+// router.get('/signup', (req, res) => {
+//   if (req.session.logged_in) {
+//     // homepage
+//     res.redirect('/signup');
+//     return;
+//   }
+
+//   res.render('login');
+// });
+
+
 
 
 
