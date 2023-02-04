@@ -1,23 +1,42 @@
+
  
+// let teamNames = [];
 
-let teamNames = [];
+//     let addTeamName = (ev)=>{
+//         ev.preventDefault();
+//         let groupName = {
+//             TeamName: document.getElementById('TeamName').value
+            
+//         }
 
-    const addTeamName = (ev)=>{
-        ev.preventDefault();
-        let groupName = {
+//         if(document.getElementById("TeamName").value.length == 0) {
+//             alert("Must be filled out!")
+//             return false
+//         }
+
+
         
-            TeamName: document.getElementById('TeamName').value
-        }
 
-        teamNames.push(groupName);
+//         teamNames.push(groupName);  
+//         document.forms[0].reset(); // to clear the form for the next entries
 
-        console.log(teamNames)
-    }
-
+//         console.log(teamNames)
+          
     
-    document.forms[0].reset(); // to clear the form for the next entries
+//     };
 
     document.addEventListener('DOMContentLoaded', ()=>{
-        document.getElementById('createTeam').addEventListener('click', addTeamName);
+        const team_exist = false;
+        team_create = fetch("../controllers/api/interaction/team_create");
+        document.getElementById('createTeam').addEventListener('click', team_create);
+        
+        if(team_exist = true) {
+            alert("Team name is already taken!")
+            return false;
+        }
+
+
     
     });
+
+    
