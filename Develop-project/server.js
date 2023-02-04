@@ -29,21 +29,23 @@ app.set('view engine', 'handlebars');
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
-  app.get('/', (req, res) => {
-    res.render('login');
-  });
 
-  // app.get('/', (req, res) => {
-  //   res.render('signup');
-  // });
+app.use(routes)
 
-  // app.get('/', (req, res) => {
-  //   res.render('homepage');
-  // });
+sequelize.sync({ force: false }).then(() => {
+  app.listen(PORT, () => console.log('Now listening'));
+});
+
+// app.get('/', (req, res) => {
+//   res.render('login');
+// });
+
+// app.get('/', (req, res) => {
+//   res.render('signup');
+// });
+
+// app.get('/', (req, res) => {
+//   res.render('homepage');
+// });
 
 
-  app.use(routes)
-
-  sequelize.sync({ force: false }).then(() => {
-    app.listen(PORT, () => console.log('Now listening'));
-  });

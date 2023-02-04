@@ -1,9 +1,9 @@
 const router = require('express').Router();
-const login_routes = require(`./login_routes`);
-const signup_routes = require(`./signup_routes`);
-const delete_routes = require(`./delete_user`);
-const update_routes = require(`./update_user`);
-const interaction_routes = require(`./user_interaction`);
+const login_routes = require('./login_routes');
+const signup_routes = require('./signup_routes');
+const delete_routes = require('./delete_user');
+const update_routes = require('./update_user');
+const interaction_routes = require('./user_interaction');
 
 router.use('/signup', signup_routes);
 router.use('/login', login_routes);

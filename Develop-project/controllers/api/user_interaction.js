@@ -65,35 +65,35 @@ router.post(`/join_team`, async (req, res) => {
 router.post(`/schedule_day`, async (req, res) => {
     switch(User.team_owner){
         case true:
-            Team.next_game = 
-            // use a for loop to generate these spaces
+            // Team.next_game = 
+            // // use a for loop to generate these spaces
 
 
 
-            "_ _ / _ _ / _ _ _ _"
-            "_ _ : _ _"
+            // "_ _ / _ _ / _ _ _ _"
+            // "_ _ : _ _"
             
-            results: 08/26/2023
-                     06:30
+            // results: 08/26/2023
+            //          06:30
 
-            1 = document.textbox.id
-            2 = document.textbox.id 
-            0 8/2 6/2 0 2 3
+            // 1 = document.textbox.id
+            // 2 = document.textbox.id 
+            // 0 8/2 6/2 0 2 3
 
 
-            1 = month1
-            2 = month2
-            3 = day1
-            4 = day2
-            5 = year
-            6 = year
-            7 = year
-            8 = year
+            // 1 = month1
+            // 2 = month2
+            // 3 = day1
+            // 4 = day2
+            // 5 = year
+            // 6 = year
+            // 7 = year
+            // 8 = year
 
-            9 = time1
-            10 = time2
-            11 = time3
-            12 = time4
+            // 9 = time1
+            // 10 = time2
+            // 11 = time3
+            // 12 = time4
             break;
         case false:
             break;

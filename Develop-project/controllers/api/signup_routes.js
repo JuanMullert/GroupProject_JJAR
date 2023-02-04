@@ -1,8 +1,7 @@
 const { User,Team }  = require('../../Models');
-
 const router = require('express').Router();
 
-app.get('/', (req, res) => {
+router.get('/', (req, res) => {
     res.render('signup');
 });
 
