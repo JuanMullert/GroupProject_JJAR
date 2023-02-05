@@ -1,11 +1,10 @@
-create_random_code(15);
 function create_random_code(string_length){
   var random_string = '';
   var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890abcdefghijklmnopqrstuvwxyz'
   for(var i, i = 0; i < string_length; i++){
     random_string += characters.charAt(Math.floor(Math.random() * characters.length))
   }
-  console.log(random_string)
+  return random_string
 }
 
-module.export = create_random_code;
+module.exports = create_random_code;
