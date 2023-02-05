@@ -19,7 +19,7 @@
             <a class="nav-link" aria-current="page" href="#">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Log out</a>
+            <a id="logoutBtn" class="nav-link">Log out</a>
           </li>
         </ul>
       </div>
@@ -43,6 +43,16 @@
            </div>
            </form>
 
+           <form>
+            <div class="teamBox">
+              <input type="text" id="createGamertag2" placeholder="Type the name team you wanna join">
+            </div>
+
+            <div class="teamBox">
+          <button id="joinTeamButton" class="btn btn-outline-light btn-lg joinBtn">Join a team</button>
+           </div>
+           </form>
+
             <form>
             <div class="teamBox">
               <input type="text" id="createGamertag2" placeholder="Create a gamertag">
@@ -53,11 +63,7 @@
            </div>
            </form>
 
-            <div class="teamBox">
-          <button id="joinTeamButton" class="btn btn-outline-light btn-lg joinBtn">Join a team</button>
-           </div>
-
-           <div id="teamNamesDisplay"></div>
+          
           
 
            {{!-- schedule --}}

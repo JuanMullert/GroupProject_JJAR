@@ -124,6 +124,24 @@ alert("Schedule added successfully!");
 document.getElementById("scheduleForm").style.display = "none";
 });
 
+// CODE FOR LOGOUT
+
+let logout = ()=>{
+    const response = fetch('/api/login/logout', {
+        method: 'POST',
+        body: JSON.stringify({ }),
+        headers: { 'Content-Type': 'application/json' },
+    });
+};
+
+document.addEventListener('DOMContentLoaded', ()=>{
+    document.getElementById('logoutBtn').addEventListener('click', logout);
+
+});
+
+
+
+
 
 
 
