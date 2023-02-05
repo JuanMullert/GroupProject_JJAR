@@ -2,13 +2,9 @@
 const router = require('express').Router();
 const { User, Team } = require('../../Models');
 
-
 router.post('/', async (req, res) => {
   try {
-    console.log(req.body)
     const userData = await User.findOne({ where: { email: req.body.email } });
-    console.log(`are we working?`)
-
 
     if (!userData) {
       res
