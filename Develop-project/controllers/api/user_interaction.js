@@ -10,7 +10,25 @@ const cant_join = false;
 // 4. if it creates a new team then the newly created team object should get returned. If not an error is observed and should spit back a message to the user.
 
 // creates a team (needs to be hooked up to a button)
+
+router.post('/', async (req, res) => {
+    console.log(`testing route works`)
+    try {
+      console.log(req.body)
+      
+  
+    }
+    catch (err) {
+      console.log(`the error is working!` + err)
+  
+      res.status(400).json(err);
+    }
+});
+
+
 router.post(`/team_create`, async (req, res) => {
+    
+    console.log(`create team works`)
     // check if team name is already created (?)
     try {
         const existing_team = await Team.findOne({
@@ -22,11 +40,11 @@ router.post(`/team_create`, async (req, res) => {
         console.log(`existing_team is finding something.`)
         
         if (!existing_team) {
-            const create_team = await Team.create({
+            const created_team = await Team.create({
                 team_name: req.body.team_name
             })
             User.team_owner = true;
-            return res.json(create_team)
+            return res.json(created_team)
         }
         else {
             // This should allow for front end response to existing team in database
@@ -35,16 +53,17 @@ router.post(`/team_create`, async (req, res) => {
         }
     }
     catch (err) {
-        res.status(404).json(err);
+        // res.status(404).json(err);
         console.log(err);
     }
 });
 
-// when a user types in a team it should make a request to this route.
-// when it makes a request to this route it should check for existing teams
-// if the team specified by the user exist, User's "team_id" should now be that team's id
-// after User.team_id has been set, it should respond with the existing team.
+// 1.when a user types in a team it should make a request to this route.
+// 2.when it makes a request to this route it should check for existing teams
+// 3.if the team specified by the user exist, User's "team_id" should now be that team's id
+// 4.after User.team_id has been set, it should respond with the existing team.
 router.post(`/join_team`, async (req, res) => {
+    
     // might be case sensitive!!!
     const existing_team = await Team.findOne({
         where:{

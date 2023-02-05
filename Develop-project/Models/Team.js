@@ -32,7 +32,7 @@ Team.init(
             // Use the beforeCreate hook to work with data before a new object is created
             beforeCreate: async (Team) => {
               // In this case, we are taking the user's generated, and generating a password before adding it to the database.
-            //   Team.generated_password = generate_password()
+              Team.generated_password = generate_password(15)
               return Team;
             },
         },
