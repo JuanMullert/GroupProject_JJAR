@@ -25,14 +25,12 @@
       </div>
     </div>
   </nav>
-  <!-- Navbar -->
 
-  <!-- Background image -->
   <div class="p-5 text-center bg-image">
     <div class="mask containerTwo">
       <div class="d-flex justify-content-center align-items-center h-100">
         <div class="text-white">
-          <h1 class="mb-3">Welcome to GameBRO</h1>
+          <h1 class="mb-3 pagetitle">Welcome to GameBRO</h1>
           <h4 class="mb-3 chooseanoption">Choose an option</h4>
 
            <form>
@@ -41,65 +39,50 @@
             </div>
 
             <div class="teamBox">
-          <button id="createTeam" class="btn btn-outline-light btn-lg">Create Team</button>
+          <button id="createTeam" class="btn btn-outline-light btn-lg">Create team</button>
            </div>
            </form>
 
-               
-
-                      {{!-- <form>
+            <form>
             <div class="teamBox">
-              <input type="text" id="TeamName" placeholder="Type your team name">
+              <input type="text" id="createGamertag2" placeholder="Create a gamertag">
             </div>
 
             <div class="teamBox">
-          <button id="createTeam" class="btn btn-outline-light btn-lg">Create Team</button>
+          <button id="createGamertag" class="btn btn-outline-light btn-lg">Add gamertag</button>
            </div>
            </form>
 
-                      <form>
             <div class="teamBox">
-              <input type="text" id="TeamName" placeholder="Type your team name">
-            </div>
-
-            <div class="teamBox">
-          <button id="createTeam" class="btn btn-outline-light btn-lg">Create Team</button>
+          <button id="joinTeamButton" class="btn btn-outline-light btn-lg joinBtn">Join a team</button>
            </div>
-           </form> --}}
 
+           <div id="teamNamesDisplay"></div>
+          
 
-          {{!-- <button onclick="printMessage()" class="btn btn-outline-light btn-lg" >Join a Team</button>
-          <button onclick="printMessage()" class="btn btn-outline-light btn-lg" >Schedule a game</button>
-          <button id="clickGamertag" onclick="clickCreateGamertag()" class="btn btn-outline-light btn-lg" >Add a gamertag</button> --}}
-          {{!-- <a class="btn btn-outline-light btn-lg" href="#!" role="button"
-          >Create Team</a> --}}
-          {{!-- <a class="btn btn-outline-light btn-lg" href="#!" role="button"
-          >Join a Team</a>
-          <a class="btn btn-outline-light btn-lg" href="#!" role="button"
-          >Schedule a game</a>
-          <a class="btn btn-outline-light btn-lg" href="#!" role="button"
-          >Add a gamertag</a> --}}
+           {{!-- schedule --}}
+           <button id="displayFormBtn" class="btn btn-outline-light btn-lg calendarbutton">Schedule a game</button>
+
+           <form class="formScheduler" id="scheduleForm">
+  <label>Enter Name Event:</label><br><br>
+  <input type="text" id="scheduleInput"><br><br>
+  <label>Enter Date:</label><br><br>
+  <input type="date" id="dateInput"><br><br>
+  <label>Enter Time:</label><br><br>
+  <input type="time" id="timeInput"><br><br>
+  <button id="submitBtn">Submit</button>
+</form>
+
         </div>
       </div>
     </div>
   </div>
-  <!-- Background image -->
 </header>
 
-{{!-- <div class='wrapper'>
-<form id='nameForm'>
-<div class='form-uname'>
-    <label id='nameLable' for='nameField'>Create a username:</label>
-    <input id='nameField' type='text' maxlength='25'></input>
-</div>
-<div class='form-sub'>
-    <button id='subButton' type='button'>Print your name!</button>
-</div>
-</form>
+<div id="calendarContainer"></div>
 
-<div>
-    <p id='result'></p></div>
-</div> --}}
+
+
 
 <script src="/js/homepage.js"></script>
 
