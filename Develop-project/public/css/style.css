@@ -73,24 +73,93 @@
 
     /* homepage */
 
+    .pagetitle {
+        margin-top: 0%;
+    }
+
     .containerTwo {
         background-color: #393a7d;
         position: absolute;
         top: 50%;
         left: 50%;
-        margin-top: -15%;
+        margin-top: -19%;
         margin-left: -25%;
         width: 50%;
-        height: 50%;
-        padding: 10%;
+        height: auto;
+        padding: 5%;
 
     }
 
     .chooseanoption {
-        color: #ff00b3;
+        color: #e9ed0a;
         font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     }
 
     input {
-        margin-top: 7%;
+        margin-top: 9%;
     }
+
+    .teamBox input {
+        width: 75%;
+    }
+
+    .calendarbutton {
+        margin-top: 20%;
+        width: 40%;
+        border-radius: 6%;
+        border-style: outset;
+        border-width: 3px;
+        font-size: large;
+        background-color: #a42303;
+        
+    }
+
+    .joinBtn {
+        margin-top: 18%;
+    }
+
+    input {
+        
+        margin-bottom: 3%;
+    }
+
+    /* homepage (scheduler)*/
+
+    .formScheduler {
+        width: 500px;
+        margin: 50px auto;
+        text-align: center;
+        font-family: Arial, sans-serif;
+        }
+        
+        .formScheduler label {
+        font-size: 20px;
+        font-weight: bold;
+        display: block;
+        margin-bottom: 10px;
+        }
+        
+        .formScheduler input[type="text"],
+        .formScheduler input[type="date"],
+        .formScheduler input[type="time"] {
+        width: 50%;
+        height: 40px;
+        padding: 10px;
+        font-size: 16px;
+        margin-bottom: 20px;
+        border: 1px solid gray;
+        border-radius: 5px;
+        }
+        
+        .formScheduler button#submitBtn {
+        width: 150px;
+        height: 50px;
+        background-color: blue;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 20px;
+        margin-top: 20px;
+        }
+        
