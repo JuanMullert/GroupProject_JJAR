@@ -2,12 +2,10 @@
  // CODE FOR CREATE TEAM <BUTTON>
 let teamNames = [];
 
-    let addTeamName = (ev)=>{
-        ev.preventDefault();
-        let groupName = {
-            TeamName: document.getElementById('TeamName').value
+    let addTeamName = ()=>{
+        
+        const team_name = document.getElementById('TeamName').value
             
-        }
  
         // checks if
         if(document.getElementById("TeamName").value.length == 0) {
@@ -15,15 +13,22 @@ let teamNames = [];
             return false
         }
 
-        if (teamNames.find(team => team.TeamName === groupName.TeamName)) {
-            alert("Choose another name, this one is already taken.");
-            return false;
-        }
+        const response = fetch('/api/interaction/team_create', {
+            method: 'POST',
+            body: JSON.stringify({ team_name }),
+            headers: { 'Content-Type': 'application/json' },
+        });
+        // if (teamNames.find(team => team.TeamName === groupName.TeamName)) {
+        //     alert("Choose another name, this one is already taken.");
+        //     return false;
+        // }
 
-        teamNames.push(groupName);  
+        // teamNames.push(groupName);  
+
         document.forms[0].reset(); // to clear the form for the next entries
 
         console.log(teamNames)
+        console.log(response)
     
     };
     

@@ -37,19 +37,19 @@ router.post(`/team_create`, async (req, res) => {
             }
         })
         console.log(existing_team)
-        console.log(`existing_team is finding something.`)
         
         if (!existing_team) {
             const created_team = await Team.create({
                 team_name: req.body.team_name
             })
             User.team_owner = true;
+            alert("Congratulations on creating your team!");
+            console.log(`team is successfully created`)
             return res.json(created_team)
         }
         else {
             // This should allow for front end response to existing team in database
-           const team_exist = true
-           return team_exist
+            return alert("Choose another name, this one is already taken.");
         }
     }
     catch (err) {
