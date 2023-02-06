@@ -1,6 +1,6 @@
 <header>
   <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-light bg-white">
+  <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #eee;">
     <div class="container-fluid">
       <button
         class="navbar-toggler"
@@ -27,53 +27,53 @@
   </nav>
 
   <div class="p-5 text-center bg-image">
-    <div class="mask containerTwo">
-      <div class="d-flex justify-content-center align-items-center h-100">
-        <div class="text-white">
-          <h1 class="mb-3 pagetitle">Welcome to GameBRO</h1>
-          <h4 class="mb-3 chooseanoption">Choose an option</h4>
+      <div class="mask containerTwo gradient-custom-2">
+        <div class="d-flex justify-content-center align-items-center h-100">
+          <div class="text-white">
+            <h1 class="mb-3 pagetitle">Welcome to GameBRO</h1>
+            <h4 class="mb-3 chooseanoption">Choose an option</h4>
 
-           <form>
-            <div class="teamBox">
-              <input type="text" id="TeamName" placeholder="Type your team name">
-            </div>
+             <form>
+              <div class="teamBox">
+                <input type="text" id="TeamName" placeholder="Type your team name">
+              </div>
 
-            <div class="teamBox">
-          <button id="createTeam" class="btn btn-outline-light btn-lg">Create team</button>
-           </div>
-           </form>
+              <div class="teamBox">
+            <button id="createTeam" class="btn btn-outline-light btn-lg">Create team</button>
+             </div>
+             </form>
 
            {{!-- WORKING ON  --}}
 
-           <form>
-            <div class="teamBox">
-              <input type="text" id="TeamName2" placeholder="Type the name team you wanna join">
-            </div>
+             <form>
+              <div class="teamBox">
+                <input type="text" id="TeamName2" placeholder="Type the name team you wanna join">
+              </div>
 
-            <div class="teamBox">
-          <button id="joinTeamButton" class="btn btn-outline-light btn-lg joinBtn">Join a team</button>
-           </div>
-           </form>
+              <div class="teamBox">
+            <button id="joinTeamButton" class="btn btn-outline-light btn-lg joinBtn">Join a team</button>
+             </div>
+             </form>
 
           {{!-- WORKING ON --}}
 
-            <form>
-            <div class="teamBox">
-              <input type="text" id="createGamertag2" placeholder="Create a gamertag">
-            </div>
+              <form>
+              <div class="teamBox">
+                <input type="text" id="createGamertag2" placeholder="Create a gamertag">
+              </div>
 
-            <div class="teamBox">
-          <button id="createGamertag" class="btn btn-outline-light btn-lg">Add gamertag</button>
-           </div>
-           </form>
+              <div class="teamBox">
+            <button id="createGamertag" class="btn btn-outline-light btn-lg">Add gamertag</button>
+             </div>
+             </form>
 
           
           
 
            {{!-- schedule --}}
-           <button id="displayFormBtn" class="btn btn-outline-light btn-lg calendarbutton">Schedule a game</button>
+             <button id="displayFormBtn" class="btn btn-outline-light btn-lg calendarbutton">Schedule a game</button>
 
-           <form class="formScheduler" id="scheduleForm">
+             <form class="formScheduler" id="scheduleForm">
   <label>Enter Name Event:</label><br><br>
   <input type="text" id="scheduleInput"><br><br>
   <label>Enter Date:</label><br><br>
@@ -82,6 +82,7 @@
   <input type="time" id="timeInput"><br><br>
   <button id="submitBtn">Submit</button>
 </form>
+
 
         </div>
       </div>
