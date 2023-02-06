@@ -29,7 +29,8 @@ When you first enter our application your will be greeted with a login page, wit
 
 ![Screenshot (48)](https://user-images.githubusercontent.com/24994854/217061856-d97b45bc-9e8b-4667-86fe-57e1f2dab205.png)
 
-![Screenshot (49)](https://user-images.githubusercontent.com/24994854/217061885-c48dd83a-df69-41a1-89f1-ee593cb7d209.png)
+![Screen Shot 2023-02-06 at 3 48 15 PM](https://user-images.githubusercontent.com/114509238/217104997-16575995-6e3d-4dfa-bdce-ea6cb2101faf.png)
+
 
 ![Screenshot (50)](https://user-images.githubusercontent.com/24994854/217061907-460433e7-b2f6-46bf-9951-93fb5b3cd3e1.png)
 
