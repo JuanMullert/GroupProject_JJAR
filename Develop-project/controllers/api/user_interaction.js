@@ -1,15 +1,10 @@
 const router = require('express').Router();
 const { User, Team } = require('../../Models');
 
-const team_exist = false;
-const cant_join = false;
-
 // 1. when a reqest comes here it should have a team name that it is looking for an trying to create
 // 2. we should be creating two variables for this route to logically use: "create_team", and "existing_team"
 // 3. an if statement is used to determine weather the api should create a "new_team" (front end (?))
 // 4. if it creates a new team then the newly created team object should get returned. If not an error is observed and should spit back a message to the user.
-
-// creates a team (needs to be hooked up to a button)
 router.post(`/team_create`, async (req, res) => {
 
     console.log(`create team works`)
@@ -94,6 +89,9 @@ router.post(`/join_team`, async (req, res) => {
     }
 });
 
+// 1. when a user types in a new gamertag it should request this route
+// 2. when it makes a post request to this route the current user is checked
+// 3. after the user is checked an updated gamertag of the user's choice is assigned to them
 router.post('/change_tag', async (req, res) => {
     // save both of these if there isn't already an email with the name address
     const current_user = await User.findOne({
@@ -113,6 +111,11 @@ router.post('/change_tag', async (req, res) => {
     return res.json(updated_user)
 });
 
+// 1. when a user logs in the user info route should be displaying details about the user in the sidebar
+// 2. when the route is active it should immediately look for the current user and it's team id
+// 3. if a team id is not found an info list is filled with the current gamer tag and two prompts where team info should be
+// 4. if a team id is found the current user's team id is used and a team password is generated
+//      once those items are filled they are pushed to the info array and sent to front in for use.
 router.get('/user_info', async (req, res) => {
     const info = []
 
@@ -120,18 +123,29 @@ router.get('/user_info', async (req, res) => {
         where: { id: req.session.user_id }
     });
 
+    // does user have a team
+    const signed_agent = current_user.team_id
+    if (!signed_agent) {
+        let gamer_tag = current_user.name
+        let team_name = `Please join a team to recieve a team name!`
+        let team_password = `Please join a team to recieve a password!`
+        info.push(gamer_tag, team_name, team_password)
+        return res.send(info)
+    }
     // current_team might need tweaking
-    const current_team = await Team.findOne({
-        where: { id: current_user.team_id }
-    });
+    else {
+        const current_team = await Team.findOne({
+            where: { id: current_user.team_id }
+        });
 
-    let gamer_tag = current_user.name
-    let team_name = current_team.team_name
-    let team_password = current_team.generated_password
+        let gamer_tag = current_user.name
+        let team_name = current_team.team_name
+        let team_password = current_team.generated_password
 
-    info.push(gamer_tag, team_name, team_password)
-    
-    return info
+        info.push(gamer_tag, team_name, team_password)
+
+        return res.send(info)
+    }
 })
 
 router.post(`/schedule_day`, async (req, res) => {
