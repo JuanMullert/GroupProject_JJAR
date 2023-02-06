@@ -6,7 +6,7 @@ let addTeamName = () => {
     const team_name = document.getElementById('TeamName').value
 
 
-    // checks if
+    // checks if the input isn't blank
     if (document.getElementById("TeamName").value.length == 0) {
         alert("Must be filled out!")
         return false
@@ -17,12 +17,6 @@ let addTeamName = () => {
         body: JSON.stringify({ team_name }),
         headers: { 'Content-Type': 'application/json' },
     });
-    // if (teamNames.find(team => team.TeamName === groupName.TeamName)) {
-    //     alert("Choose another name, this one is already taken.");
-    //     return false;
-    // }
-
-    // teamNames.push(groupName);  
     document.forms[0].reset(); // to clear the form for the next entries
 
     console.log(team_name)
@@ -36,7 +30,6 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // CODE FOR ADD GAMERTAG <BUTTON>
-
 let changeGamerTag = () => {
 
     const gamer_tag = document.getElementById('createGamertag2').value
@@ -53,7 +46,7 @@ let changeGamerTag = () => {
     });
 
     document.forms[0].reset(); // to clear the form for the next entries
-    
+
     console.log(gamer_tag)
     console.log(gamer_tag)
 };
@@ -64,7 +57,6 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // CODE FOR <JOIN TEAM BUTTON>
-
 const joining_team = () => {
 
     const team_name = document.getElementById('TeamName2').value
@@ -94,7 +86,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 // CODE FOR SCHEDULER
-
 let schedules = [];
 
 document.getElementById("scheduleForm").style.display = "none";
@@ -126,57 +117,38 @@ document.getElementById("submitBtn").addEventListener("click", function () {
 });
 
 // CODE FOR LOGOUT
-
-// let logout = () => {
-//     const response = fetch('/api/login/logout', {
-//         method: 'POST',
-//         headers: { 'Content-Type': 'application/json' },
-//     });
-// };
-
-// document.addEventListener('DOMContentLoaded', () => {
-//     document.getElementById('logoutBtn').addEventListener('click', logout);
-
-// });
-
 let logout = () => {
     fetch('/api/login/logout', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
     })
-    .then(res => {
-      if (res.ok) {
-        // logout was successful, redirect to the login page
-        window.location.replace('/api/login');
-      }
-    });
-  };
-  
-  document.addEventListener('DOMContentLoaded', () => {
+        .then(res => {
+            if (res.ok) {
+                // logout was successful, redirect to the login page
+                window.location.replace('/api/login');
+            }
+        });
+};
+
+document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('logoutBtn').addEventListener('click', logout);
-  });
+});
 
+// CODE FOR USER INFORMATION (SIDEBAR DISPLAY)
 
-// SIDEBAR DISPLAY
+const display_user = () => {
+    // event.preventDefault()
+    fetch('api/interaction/user_info')
+        .then(res => res.json())
+        .then(info => {
+            let gamer_tag = document.getElementById('info1')
+            let team_name = document.getElementById('info2')
+            let team_password = document.getElementById('info3')
 
-
-
-
-
-// CODE FOR USER INFORMATION
- 
-const display_user = (event) => {
-    event.preventDefault()
-    const user_info = fetch('api/interaction/user_info')
-
-    let gamer_tag = document.getElementById('info1').value
-    let team_name = document.getElementById('info2').value
-    let team_password = document.getElementById('info3').value
-
-    user_info[0] = gamer_tag
-    user_info[1] = team_name
-    user_info[2] = team_password
-
-    console.log(user_info)
+            gamer_tag.innerText = info[0]
+            team_name.innerText = info[1]
+            team_password.innerText = info[2]
+        })
+        .catch(error => console.error(error))
 }
-display_user() 
+display_user()
