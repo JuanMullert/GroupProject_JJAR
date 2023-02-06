@@ -25,12 +25,13 @@ When you first enter our application your will be greeted with a login page, wit
 
 <h2>Preview</h2>
 
-![Screenshot (40)](https://user-images.githubusercontent.com/24994854/217051104-c58abf56-a73c-4d90-a240-399add108bb2.png)
+![Screenshot (47)](https://user-images.githubusercontent.com/24994854/217061826-923f838c-db28-44dd-8aa6-97c505a0b6ab.png)
 
-![Screenshot (41)](https://user-images.githubusercontent.com/24994854/217051126-494be9a6-c4b0-4e46-af0e-580225c5daf4.png)
+![Screenshot (48)](https://user-images.githubusercontent.com/24994854/217061856-d97b45bc-9e8b-4667-86fe-57e1f2dab205.png)
 
-![Screenshot (42)](https://user-images.githubusercontent.com/24994854/217051146-0a3e93f5-f1f0-44f0-91bf-36686c45eb96.png)
+![Screenshot (49)](https://user-images.githubusercontent.com/24994854/217061885-c48dd83a-df69-41a1-89f1-ee593cb7d209.png)
 
+![Screenshot (50)](https://user-images.githubusercontent.com/24994854/217061907-460433e7-b2f6-46bf-9951-93fb5b3cd3e1.png)
 
 <h2>Credits</h2>
 
