@@ -10,24 +10,8 @@ const cant_join = false;
 // 4. if it creates a new team then the newly created team object should get returned. If not an error is observed and should spit back a message to the user.
 
 // creates a team (needs to be hooked up to a button)
-
-router.post('/', async (req, res) => {
-    console.log(`testing route works`)
-    try {
-      console.log(req.body)
-      
-  
-    }
-    catch (err) {
-      console.log(`the error is working!` + err)
-  
-      res.status(400).json(err);
-    }
-});
-
-
 router.post(`/team_create`, async (req, res) => {
-    
+     
     console.log(`create team works`)
     // check if team name is already created (?)
     try {
@@ -36,25 +20,41 @@ router.post(`/team_create`, async (req, res) => {
                 team_name: req.body.team_name
             }
         })
-        console.log(existing_team)
-        
+
         if (!existing_team) {
             const created_team = await Team.create({
                 team_name: req.body.team_name
+            });
+            const current_user = await User.findOne({
+                where: {
+                    id: req.session.user_id
+                }
+             
+            });
+            const expansion_team = await Team.findOne({
+                where: {
+                    team_name: req.body.team_name
+                }
             })
-            User.team_owner = true;
-            alert("Congratulations on creating your team!");
+
+            console.log(expansion_team)
+
+            const updated_user = await current_user.update({
+                team_id: expansion_team.id,
+                team_owner: true             
+            });
+
             console.log(`team is successfully created`)
-            return res.json(created_team)
+            return res.json(updated_user)
         }
         else {
             // This should allow for front end response to existing team in database
-            return alert("Choose another name, this one is already taken.");
+            return res.json({ message: `This team name is already in use.`})
         }
     }
     catch (err) {
         // res.status(404).json(err);
-        console.log(err);
+        console.log(err); 
     }
 });
 
@@ -63,22 +63,35 @@ router.post(`/team_create`, async (req, res) => {
 // 3.if the team specified by the user exist, User's "team_id" should now be that team's id
 // 4.after User.team_id has been set, it should respond with the existing team.
 router.post(`/join_team`, async (req, res) => {
-    
+    console.log('joining a team')
+    console.log(req.session.user_id)
     // might be case sensitive!!!
     const existing_team = await Team.findOne({
         where:{
             team_name: req.body.team_name
         }
     })
+    console.log('server found a team')
     if (existing_team) {
-        existing_team.id = User.team_id
-        return res.json(existing_team)
+        const current_user = await User.findOne({
+            where: {
+                id: req.session.user_id
+            }
+        });
+        console.log(`Server has current user`)
+        const updated_user = await current_user.update({
+            team_id: existing_team.id,
+            team_owner: false           
+        });
+        
+        console.log('Server has updated the user')
+        console.log(updated_user)
+
+        return res.json(updated_user);
     }
     else {
-        const cant_join = true
-        return cant_join
+        return res.json({ message: `This team does not exist try joining another one.`})
     }
-    return res.json(existing_team)
 });
 
 router.post(`/schedule_day`, async (req, res) => {
