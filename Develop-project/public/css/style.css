@@ -73,6 +73,10 @@
 
     /* homepage */
 
+    .logoutpress {
+        cursor: pointer;
+    }
+
     .pagetitle {
         margin-top: 0%;
     }
