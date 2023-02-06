@@ -1,17 +1,13 @@
 
 const loginFormHandler = async (event) => {
   event.preventDefault();
-
-  // let button = document.querySelector("#clicklogin");
-  
-
   const email = document.getElementById("email-login").value.trim();
   const password = document.getElementById("password-login").value.trim();
   console.log(email, password);
   if (email && password) {
 
-    // route to the api in use fo r front end--Juan
-    const response = await fetch(`../../controllers/api/login_routes`, {
+    // route to the api in use for front end--Juan
+    const response = await fetch(`/api/login`, {
       method: "POST",
       body: JSON.stringify({ email, password }),
       headers: { "Content-Type": "application/json" },
@@ -21,19 +17,10 @@ const loginFormHandler = async (event) => {
     console.log(email, password);
     if (response.ok) {
       document.location.replace("/");
-      // TODO make a route instead of provide a failed log
-      // TODO make a sign up page
-      // alert('Failed to log in');
       return;
     } 
-    // else {
-    //   document.location.replace("../controllers/api/signup_routes");
-    // }
   }
 };
 
 const form = document.getElementById("submit_button");
 form.addEventListener("click", loginFormHandler);
-
-
-  // clicklogin.querySelector("#clicklogin").addEventListener("submit", loginFormHandler);

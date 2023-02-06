@@ -8,7 +8,7 @@ router.get('/', async (req, res) => {
       res.render('homepage')
     }
     else{
-    res.render('homepage')
+    res.render('login')
     }
   }
   catch (err) {
