@@ -39,38 +39,30 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // CODE FOR ADD GAMERTAG <BUTTON>
 
-let Gamertags = [];
+let changeGamerTag = () => {
 
-let addGamertag = (ev) => {
-    ev.preventDefault();
-    let TheGamertag = {
-        createGamertag2: document.getElementById('createGamertag2').value
-
-    }
-
+    const gamer_tag = document.getElementById('createGamertag2').value
 
     if (document.getElementById("createGamertag2").value === "") {
         alert("Must be filled out!");
         return false;
-
     }
 
+    const response = fetch('/api/interaction/change_tag', {
+        method: 'POST',
+        body: JSON.stringify({ gamer_tag }),
+        headers: { 'Content-Type': 'application/json' },
+    });
 
-    if (Gamertags.find(game => game.createGamertag2 === TheGamertag.createGamertag2)) {
-        alert("Choose another gamertag, this one is already taken.");
-        return false;
-    }
-
-    Gamertags.push(TheGamertag);
     document.forms[0].reset(); // to clear the form for the next entries
-
-    console.log(Gamertags)
-
+    
+    console.log(gamer_tag)
+    console.log(gamer_tag)
 };
 
 
 document.addEventListener('DOMContentLoaded', () => {
-    document.getElementById('createGamertag').addEventListener('click', addGamertag);
+    document.getElementById('createGamertag').addEventListener('click', changeGamerTag);
 });
 
 // CODE FOR <JOIN TEAM BUTTON>
@@ -91,13 +83,6 @@ const joining_team = () => {
         body: JSON.stringify({ team_name }),
         headers: { 'Content-Type': 'application/json' },
     });
-    
-    // if (teamNames.find(team => team.TeamName === groupName.TeamName)) {
-    //     alert("Choose another name, this one is already taken.");
-    //     return false;
-    // }
-
-    // teamNames.push(groupName);  
 
     document.forms[0].reset(); // to clear the form for the next entries
 
