@@ -22,7 +22,7 @@
     }
 
     img {
-        border-radius: 25%;
+        border-radius: .25rem;
     }
 
     .logintext {
@@ -110,7 +110,8 @@
         border-style: outset;
         border-width: 3px;
         font-size: large;
-        background-color: #a42303;
+        background-color: #eee;
+        color: #383533;
         
     }
 
