@@ -7,13 +7,22 @@ router.get('/', (req, res) => {
 
 router.post('/new_user', async (req, res) => {
     // save both of these if there isn't already an email with the name address
-    const new_user = await User.create({
-        name: 'gamertag',
-        email: req.body.email,
-        password: req.body.password,
+    const existing_user = await User.findOne({
+        where: {
+            email: req.body.email
+        }
     })
-    return res.json(new_user) 
-    
+
+    if(!existing_user){
+        const new_user = await User.create({
+            name: 'gamertag',
+            email: req.body.email,
+            password: req.body.password,
+        })
+    }
+    else{
+        return res.json({ message: `This email is already in use.`})
+    }
 });
 
 module.exports = router;
