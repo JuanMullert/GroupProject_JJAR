@@ -91,6 +91,7 @@ const joining_team = () => {
         body: JSON.stringify({ team_name }),
         headers: { 'Content-Type': 'application/json' },
     });
+    
     // if (teamNames.find(team => team.TeamName === groupName.TeamName)) {
     //     alert("Choose another name, this one is already taken.");
     //     return false;
@@ -106,7 +107,7 @@ const joining_team = () => {
 };
 
 document.addEventListener('DOMContentLoaded', () => {
-    document.getElementById('TeamName2').addEventListener('click', joining_team);
+    document.getElementById('joinTeamButton').addEventListener('click', joining_team);
 });
 
 
