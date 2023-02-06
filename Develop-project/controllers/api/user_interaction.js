@@ -11,7 +11,7 @@ const cant_join = false;
 
 // creates a team (needs to be hooked up to a button)
 router.post(`/team_create`, async (req, res) => {
-     
+
     console.log(`create team works`)
     // check if team name is already created (?)
     try {
@@ -29,7 +29,7 @@ router.post(`/team_create`, async (req, res) => {
                 where: {
                     id: req.session.user_id
                 }
-             
+
             });
             const expansion_team = await Team.findOne({
                 where: {
@@ -41,7 +41,7 @@ router.post(`/team_create`, async (req, res) => {
 
             const updated_user = await current_user.update({
                 team_id: expansion_team.id,
-                team_owner: true             
+                team_owner: true
             });
 
             console.log(`team is successfully created`)
@@ -49,12 +49,12 @@ router.post(`/team_create`, async (req, res) => {
         }
         else {
             // This should allow for front end response to existing team in database
-            return res.json({ message: `This team name is already in use.`})
+            return res.json({ message: `This team name is already in use.` })
         }
     }
     catch (err) {
         // res.status(404).json(err);
-        console.log(err); 
+        console.log(err);
     }
 });
 
@@ -67,7 +67,7 @@ router.post(`/join_team`, async (req, res) => {
     console.log(req.session.user_id)
     // might be case sensitive!!!
     const existing_team = await Team.findOne({
-        where:{
+        where: {
             team_name: req.body.team_name
         }
     })
@@ -81,16 +81,16 @@ router.post(`/join_team`, async (req, res) => {
         console.log(`Server has current user`)
         const updated_user = await current_user.update({
             team_id: existing_team.id,
-            team_owner: false           
+            team_owner: false
         });
-        
+
         console.log('Server has updated the user')
         console.log(updated_user)
 
         return res.json(updated_user);
     }
     else {
-        return res.json({ message: `This team does not exist try joining another one.`})
+        return res.json({ message: `This team does not exist try joining another one.` })
     }
 });
 
@@ -104,7 +104,7 @@ router.post('/change_tag', async (req, res) => {
     console.log(current_user)
 
     const updated_user = await current_user.update({
-        name: req.body.gamer_tag         
+        name: req.body.gamer_tag
     });
 
     console.log('user gamer_tag has successfully been updated')
@@ -113,8 +113,29 @@ router.post('/change_tag', async (req, res) => {
     return res.json(updated_user)
 });
 
+router.get('/user_info', async (req, res) => {
+    const info = []
+
+    const current_user = await User.findOne({
+        where: { id: req.session.user_id }
+    });
+
+    // current_team might need tweaking
+    const current_team = await Team.findOne({
+        where: { id: current_user.team_id }
+    });
+
+    let gamer_tag = current_user.name
+    let team_name = current_team.team_name
+    let team_password = current_team.generated_password
+
+    info.push(gamer_tag, team_name, team_password)
+    
+    return info
+})
+
 router.post(`/schedule_day`, async (req, res) => {
-    switch(User.team_owner){
+    switch (User.team_owner) {
         case true:
             // Team.next_game = 
             // // use a for loop to generate these spaces
@@ -123,7 +144,7 @@ router.post(`/schedule_day`, async (req, res) => {
 
             // "_ _ / _ _ / _ _ _ _"
             // "_ _ : _ _"
-            
+
             // results: 08/26/2023
             //          06:30
 
