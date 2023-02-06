@@ -151,4 +151,5 @@ const display_user = () => {
         })
         .catch(error => console.error(error))
 }
+
 display_user()
