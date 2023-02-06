@@ -5,7 +5,7 @@ router.get('/', (req, res) => {
     res.render('signup');
 });
 
-router.post('/', async (req, res) => {
+router.post('/new_user', async (req, res) => {
     // save both of these if there isn't already an email with the name address
     const new_user = await User.create({
         name: 'gamertag',
