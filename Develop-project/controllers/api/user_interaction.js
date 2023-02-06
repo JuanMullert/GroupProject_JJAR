@@ -94,6 +94,25 @@ router.post(`/join_team`, async (req, res) => {
     }
 });
 
+router.post('/change_tag', async (req, res) => {
+    // save both of these if there isn't already an email with the name address
+    const current_user = await User.findOne({
+        where: { id: req.session.user_id }
+    });
+
+    console.log('current user was found')
+    console.log(current_user)
+
+    const updated_user = await current_user.update({
+        name: req.body.gamer_tag         
+    });
+
+    console.log('user gamer_tag has successfully been updated')
+    console.log(updated_user)
+
+    return res.json(updated_user)
+});
+
 router.post(`/schedule_day`, async (req, res) => {
     switch(User.team_owner){
         case true:
@@ -131,13 +150,5 @@ router.post(`/schedule_day`, async (req, res) => {
             break;
     }
 });
-
-router.put(`/:name`, async (req, res) => {
-    const updated_gamertag = await User.update({
-        where: { name: req.params.name}
-    })
-    return res.json(updated_gamertag)
-});
-
 
 module.exports = router;
