@@ -162,4 +162,29 @@
         font-size: 20px;
         margin-top: 20px;
         }
+
+        /* SIDEBAR */
+
+        .sidebar {
+            background-color: #161514;
+            border: solid 4px #827c7a;
+            color: rgb(255, 255, 255);
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            width: 20%;
+            padding: 2%;
+            margin-left: 2%;
+            margin-top: 1px;
+            height: 25%;
+
+        }
+
+        .details {
+            margin-left: 2%;
+            margin-top: 3%;
+            color: #ae3234;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        }
+
+
+
         

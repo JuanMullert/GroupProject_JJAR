@@ -129,17 +129,41 @@ document.getElementById("submitBtn").addEventListener("click", function () {
 
 // CODE FOR LOGOUT
 
+// let logout = () => {
+//     const response = fetch('/api/login/logout', {
+//         method: 'POST',
+//         headers: { 'Content-Type': 'application/json' },
+//     });
+// };
+
+// document.addEventListener('DOMContentLoaded', () => {
+//     document.getElementById('logoutBtn').addEventListener('click', logout);
+
+// });
+
 let logout = () => {
-    const response = fetch('/api/login/logout', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+    fetch('/api/login/logout', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+    })
+    .then(res => {
+      if (res.ok) {
+        // logout was successful, redirect to the login page
+        window.location.replace('/api/login');
+      }
     });
-};
-
-document.addEventListener('DOMContentLoaded', () => {
+  };
+  
+  document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('logoutBtn').addEventListener('click', logout);
+  });
 
-});
+
+// SIDEBAR DISPLAY
+
+
+
+
 
 
 
