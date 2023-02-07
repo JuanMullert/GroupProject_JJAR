@@ -50,4 +50,5 @@ See license in repository
 
 <h2>Deployment</h2>
 
+https://gamebrobysarj.herokuapp.com/api/login?
 
